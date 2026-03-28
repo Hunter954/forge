@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Login administrativo | BlackForge{% endblock %}
+{% block content %}
+<section class="admin-auth-wrap">
+  <form class="admin-auth glass" method="post">
+    <div class="eyebrow">Área administrativa</div>
+    <h1>Entrar para visualizar leads</h1>
+    <label>
+      <span>Usuário</span>
+      <input type="text" name="username" required>
+    </label>
+    <label>
+      <span>Senha</span>
+      <input type="password" name="password" required>
+    </label>
+    <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    <a href="/" class="btn btn-ghost btn-block">Voltar para o site</a>
+  </form>
+</section>
+{% endblock %}

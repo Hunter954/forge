@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Leads captados | BlackForge{% endblock %}
+{% block content %}
+<section class="admin-page container">
+  <div class="admin-top">
+    <div>
+      <span class="eyebrow">Painel interno</span>
+      <h1>Leads captados pelo site</h1>
+      <p>Base inicial para evoluir depois com filtros, tags, status comercial, funil e observações.</p>
+    </div>
+    <a href="/admin/logout" class="btn btn-outline">Sair</a>
+  </div>
+  <div class="table-wrap glass">
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Nome</th>
+          <th>Empresa</th>
+          <th>WhatsApp</th>
+          <th>E-mail</th>
+          <th>Projeto</th>
+          <th>Mensagem</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lead in leads %}
+        <tr>
+          <td>{{ lead.created_at.strftime('%d/%m/%Y %H:%M') }}</td>
+          <td>{{ lead.name }}</td>
+          <td>{{ lead.company or '-' }}</td>
+          <td>{{ lead.phone }}</td>
+          <td>{{ lead.email or '-' }}</td>
+          <td>{{ lead.project_type }}</td>
+          <td>{{ lead.message or '-' }}</td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="7">Nenhum lead cadastrado ainda.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
